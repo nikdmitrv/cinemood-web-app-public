@@ -1,6 +1,6 @@
 function audioConstructor(count) {
-  const container = document.querySelector('.diafilm-player-button-container')
-  container.removeChild(document.querySelector('.diafilm-player-audio-controls'))
+  const container = document.querySelector('.diafilm-player-button-container');
+  container.removeChild(document.querySelector('.diafilm-player-audio-controls'));
   const newAudio = document.createElement('audio');
   const newAudioSource = document.createElement('source');
   newAudioSource.src = `/diafilms/${count}.wav`;
@@ -26,4 +26,3 @@ document.addEventListener('click', e => {
     audioConstructor(counter)
   }
 });
-
