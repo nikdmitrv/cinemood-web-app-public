@@ -5,25 +5,25 @@ const Films = require('../models/films');
 // вывод всех фльмов 
 // allFilms - метод в схеме Films
 router.get('/', async (req, res) => {
-    res.render('./films/index', Films.allFilms())
+    res.render('./films/index', { allFilms: await Films.allFilms() }, { userLogged })
+    //res.send(await Films.allFilms());
 })
 // вывод всех категорий 
 // allCategories - метод в схеме Films
 router.get('/category', async (req, res) => {
-    res.render('./films/category/index', Films.allCategories())
+    res.render('./films/category/index', { allCategories: Films.allCategories() }, { userLogged })
 })
 // вывод всех фильмов выбранной категории
 // getByCategory - метод в схеме Films
 router.get('/:category', async (req, res) => {
     res.render('./films/caterory/detail', {
         categoryFilms: await Films.getByCategory(req.params.category)
-    })
+    }, { userLogged })
 })
 // вывод определённого фильма
 router.get('/:category/:film', async (req, res) => {
-    let category = await Films.getByCategory(req.params.category);
-    let choosenFilm = req.params.film;
-    res.render('./films/detail', { film: category.choosenFilm });
+    let film = await Films.getByName(req.params.film);
+    res.render('./films/detail', { film }, { userLogged });
 })
 
 module.exports = router;
