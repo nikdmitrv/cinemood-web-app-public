@@ -9,5 +9,9 @@ let userSchema = mongoose.Schema({
     filmsOwned: Object,
     key: Number,
 })
+// юзер по имени
+userSchema.statics.getByName = async function (id) {
+    return await this.findOne({ _id: new mongoose.Types.ObjectId(id) }, { password: 0 });
+}
 
 module.exports = mongoose.model('User', userSchema);
