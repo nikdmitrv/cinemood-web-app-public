@@ -13,7 +13,7 @@ router.get('/login', (req, res) => {
 // личный кабинет
 // getUser - метод в схеме Users
 router.get('/:id', async (req, res) => {
-    res.render('./users/index', { userData: await User.getUser(req.params.id) });
+    res.render('./users/index', { userData: await User.getByName(req.params.id) }, { userLogged });
 })
 
 module.exports = router;
