@@ -6,6 +6,7 @@
 # 3.DB
 # 4.Auth
 # 5.Filmstrip viewer
+# 6. Deploy to Heroku
 
 Наш REST
 # Диафильмы /films
