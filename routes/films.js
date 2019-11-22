@@ -21,8 +21,7 @@ router.get('/category', async (req, res) => {
 router.get('/:category', async (req, res) => {
     res.render('./films/category/detail', {
         categoryFilms: await Films.getByCategory(req.params.category)
-        , userLogged
-    })
+    }, { userLogged })
 })
 // вывод определённого фильма
 router.get('/:category/:film', async (req, res) => {
