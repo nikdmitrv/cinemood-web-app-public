@@ -6,7 +6,7 @@ let userSchema = mongoose.Schema({
     email: String,
     password: String,
     kubikOwner: Boolean,
-    filmsOwned: Object,
+    filmsOwned: Array,
     key: Number,
 })
 // юзер по имени

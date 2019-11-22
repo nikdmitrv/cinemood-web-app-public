@@ -34,6 +34,20 @@ app.engine('hbs', hbs.engine);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+app.use(async function (req, res, next) {
+  const User = require('../models/users');
+  if (req.cookies.cookie) {
+    let user = await User.findOne({ key: req.cookies.cookie })
+    if (user) {
+      req.isLogged = true
+    } else {
+      req.isLogged = false
+    }
+  } else {
+    req.isLogged = false
+  }
+  next()
+})
 app.use('/', indexRouter);
 app.use('/films', filmsRouter);
 app.use('/users', usersRouter);
