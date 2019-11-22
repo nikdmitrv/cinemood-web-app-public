@@ -31,12 +31,17 @@ const hbs = handlebars.create({
 });
 
 // view engine setup
+app.engine('hbs', hbs.engine);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-app.engine('hbs', hbs.engine);
 
+<<<<<<< HEAD
+app.use(async function (req, res, next) {
+  const User = require('../models/users');
+=======
 // middleware на проверку кукисов
 app.use(async function (req, res, next) {
+>>>>>>> b5419b1e7e2bbac1371e6a3763f737f3b88f6ca7
   if (req.cookies.cookie) {
     let user = await User.findOne({ key: req.cookies.cookie })
     if (user) {
