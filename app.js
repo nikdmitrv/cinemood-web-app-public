@@ -1,5 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
+
 const app = express();
 const createError = require('http-errors');
 const path = require('path');
@@ -36,19 +37,19 @@ app.set('view engine', 'hbs');
 app.engine('hbs', hbs.engine);
 
 // middleware на проверку кукисов
-app.use(async function (req, res, next) {
+app.use(async (req, res, next) => {
   if (req.cookies.cookie) {
-    let user = await User.findOne({ key: req.cookies.cookie })
+    let user = await User.findOne({ key: req.cookies.cookie });
     if (user) {
-      req.isLogged = true
+      req.isLogged = true;
     } else {
-      req.isLogged = false
+      req.isLogged = false;
     }
   } else {
-    req.isLogged = false
+    req.isLogged = false;
   }
-  next()
-})
+  next();
+});
 app.use('/', indexRouter);
 app.use('/films', filmsRouter);
 app.use('/users', usersRouter);
