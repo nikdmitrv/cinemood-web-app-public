@@ -6,8 +6,8 @@ const Films = require('../models/films');
 // вывод всех фильмов
 // allFilms - метод в схеме Films
 router.get('/', async (req, res) => {
-  let userLogged = req.isLogged;
-  res.render('./films/index', { allFilms: await Films.allFilms(), userLogged });
+  // let userLogged = req.isLogged;
+  res.render('./films/index');
   //res.send(await Films.allFilms());
 });
 // вывод всех фильмов выбранной категории

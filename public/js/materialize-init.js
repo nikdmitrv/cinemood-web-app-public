@@ -22,3 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const elems = document.querySelector('.tabs');
   const instances = M.Tabs.init(elems);
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const elems = document.querySelector('.carousel');
+  const instances = M.Carousel.init(elems, {
+    dist: 0,
+    indicators: true,
+  });
+});
