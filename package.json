@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/nikdmitrv/cinemood-web-app-public#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.4",
     "debug": "^4.1.1",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
