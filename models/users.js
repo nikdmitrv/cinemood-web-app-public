@@ -6,8 +6,12 @@ let userSchema = mongoose.Schema({
     email: String,
     password: String,
     kubikOwner: Boolean,
-    filmsOwned: Object,
+    filmsOwned: Array,
     key: Number,
 })
+// юзер по имени
+userSchema.statics.getById = async function (id) {
+    return await this.findOne({ _id: new mongoose.Types.ObjectId(id) }, { password: 0 });
+}
 
 module.exports = mongoose.model('User', userSchema);

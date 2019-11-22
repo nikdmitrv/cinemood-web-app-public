@@ -6,11 +6,12 @@
 # 3.DB
 # 4.Auth
 # 5.Filmstrip viewer
+# 6. Deploy to Heroku
 
 Наш REST
 # Диафильмы /films
 /:category - название категории
-/:film - название фильма
+/:category/:film - название фильма
 # Пользователи /users
 /:id - личный кабинет
 /new - регистрация

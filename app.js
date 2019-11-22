@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-require 
-=======
 const express = require('express');
 
 const app = express();
@@ -17,6 +14,7 @@ const usersRouter = require('./routes/users');
 // Подключаем mongoose.
 mongoose.connect('mongodb://localhost:27017/cinemood', {
   useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 app.use(logger('dev'));
@@ -32,10 +30,24 @@ const hbs = handlebars.create({
 });
 
 // view engine setup
+app.engine('hbs', hbs.engine);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-app.engine('hbs', hbs.engine);
 
+app.use(async function (req, res, next) {
+  const User = require('../models/users');
+  if (req.cookies.cookie) {
+    let user = await User.findOne({ key: req.cookies.cookie })
+    if (user) {
+      req.isLogged = true
+    } else {
+      req.isLogged = false
+    }
+  } else {
+    req.isLogged = false
+  }
+  next()
+})
 app.use('/', indexRouter);
 app.use('/films', filmsRouter);
 app.use('/users', usersRouter);
@@ -57,4 +69,3 @@ app.use((err, req, res, next) => {
 });
 
 module.exports = app;
->>>>>>> 18c8be46fae0d11720a9362181e3fa91e73cd00d
