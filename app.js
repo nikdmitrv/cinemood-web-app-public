@@ -12,7 +12,7 @@ const filmsRouter = require('./routes/films');
 const usersRouter = require('./routes/users');
 
 // Подключаем mongoose.
-mongoose.connect('mongodb://localhost:27017/cinemood', {
+mongoose.connect('mongodb+srv://datauser:neJNDDYBoEGvopZ6@cluster0-qyjcg.mongodb.net/test?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
