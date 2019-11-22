@@ -1,5 +1,5 @@
 <div class="row">
-{{#if userLogged}}
+  {{#if userLogged}}
   {{#each categoryFilms}}
   <div class="col s4">
     <div class="card">
@@ -18,7 +18,7 @@
   </div>
   {{/each}}
   {{else}}
-    {{#each categoryFilms}}
+  {{#each categoryFilms}}
   <div class="col s4">
     <div class="card">
       <div class="card-image">
@@ -35,7 +35,7 @@
     </div>
   </div>
   {{/each}}
-
+  {{/if}}
   {{!-- <div class="col s4">
     <div class="card">
       <div class="card-image">
