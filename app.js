@@ -32,9 +32,9 @@ const hbs = handlebars.create({
 });
 
 // view engine setup
+app.engine('hbs', hbs.engine);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-app.engine('hbs', hbs.engine);
 
 // middleware на проверку кукисов
 app.use(async (req, res, next) => {

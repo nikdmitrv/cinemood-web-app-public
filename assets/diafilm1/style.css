@@ -1,0 +1,16 @@
+body {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.diafilm-player-display {
+    height: 400px;
+    width: 600px;
+}
+
+.diafilm-player-button-container {
+    display: flex;
+    justify-content: center;
+}
+
