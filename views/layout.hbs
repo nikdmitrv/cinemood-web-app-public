@@ -12,21 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--Import materialize.js-->
     <script type="text/javascript" src="js/materialize.js" defer></script>
-    <script defer>
-        //M.AutoInit();
-        document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(elems);
-        });
-        document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.dropdown-trigger.main');
-            var instances = M.Dropdown.init(elems, { hover: true, coverTrigger: false, constrainWidth: false, });
-        });
-        document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.dropdown-trigger.side');
-            var instances = M.Dropdown.init(elems, { coverTrigger: false });
-        });
-    </script>
+    <script type="text/javascript" src="js/materialize-init.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,28 +44,47 @@
                     {{/if}}
                 </ul>
                 <ul class="col right hide-on-med-and-down">
-                    <li><a href="#"><i class="large material-icons">person_outline</i></a></li>
                     {{#if userLogged}}
-                    <li><a href="#" class=""><i class="material-icons">exit_to_app</i></a></li>
+                    <li><a href="/users/{{user.id}}" class="blue-text text-darken-1"><i
+                                class="material-icons left">person_outline</i>Личный кабинет</a></li>
+                    {{else}}
+                    <li><a href="#modal" class="blue-text text-darken-1"><i
+                                class="material-icons left">person_outline</i>Личный кабинет</a></li>
+                    {{/if}}
+                    {{#if userLogged}}
+                    <li><a href="#" class=""><i class="material-icons left ">exit_to_app</i>Выйти</a></li>
                     {{/if}}
                 </ul>
                 <ul id="nav-mobile" class="sidenav">
-                    <li><a href="#" class=""><i class="material-icons">person_outline</i></a></li>
                     {{#if userLogged}}
-                    <li><a href="#" class=""><i class="material-icons">exit_to_app</i></a></li>
+                    <li><a href="/users/{{user.id}}" class="blue-text text-darken-1"><i
+                                class="material-icons left">person_outline</i>Личный кабинет</a></li>
+                    {{else}}
+                    <li><a href="#modal" class="blue-text text-darken-1"><i
+                                class="material-icons left">person_outline</i>Личный кабинет</a></li>
                     {{/if}}
-                    <li><a class="dropdown-trigger side" href="#!" data-target="dropdown-side">Категории<i
-                                class="material-icons right">arrow_drop_down</i></a></li>
-                    <ul id='dropdown-side' class='dropdown-content'>
-                        <li><a class="blue-text text-darken-1" href="films/skazki_rus">Русские сказки</a></li>
+                    {{#if userLogged}}
+                    <li><a href="#" class="blue-text text-darken-1"><i
+                                class="material-icons left">exit_to_app</i>Выйти</a></li>
+                    {{/if}}
+                    <ul id='dropdown-side' class='collection with-header'>
+                        <li class="collection-header blue-text text-darken-1">
+                            <h6>Категории</h6>
+                        </li>
+                        <li><a class="collection-item blue-text text-darken-1" href="films/skazki_rus">Русские
+                                сказки</a></li>
                         <li class="divider" tabindex="-1"></li>
-                        <li><a class="blue-text text-darken-1" href="films/skazki_eng">Сказки на английском</a></li>
+                        <li><a class="collection-item blue-text text-darken-1" href="films/skazki_eng">Сказки на
+                                английском</a></li>
                         <li class="divider" tabindex="-1"></li>
-                        <li><a class="blue-text text-darken-1" href="films/soyuzmultfilm">Союзмультфильм</a></li>
+                        <li><a class="collection-item blue-text text-darken-1"
+                                href="films/soyuzmultfilm">Союзмультфильм</a></li>
                         <li class="divider" tabindex="-1"></li>
                     </ul>
                     {{#if userLogged}}
-                    <li><a href="#" class="">Моя коллекция</a></li>
+                    <li><a href="#" class="blue-text text-darken-1">
+                            <h6>Моя коллекция</h6>
+                        </a></li>
                     {{/if}}
                 </ul>
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger">
@@ -89,44 +94,53 @@
     </header>
 
     <main>
-        {{main}}
+        {{body}}
     </main>
 
     <footer class="page-footer orange">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">О нас</h5>
-                    <p class="grey-text text-lighten-4">We are a team of college students working on this project like
-                        it's our full time job. Any amount would help support and continue development on this project
-                        and is greatly appreciated.</p>
-
-
-                </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">Settings</h5>
-                    <ul>
-                        <li><a class="white-text" href="#!">Link 1</a></li>
-                        <li><a class="white-text" href="#!">Link 2</a></li>
-                        <li><a class="white-text" href="#!">Link 3</a></li>
-                        <li><a class="white-text" href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">Connect</h5>
-                    <ul>
-                        <li><a class="white-text" href="#!">Link 1</a></li>
-                        <li><a class="white-text" href="#!">Link 2</a></li>
-                        <li><a class="white-text" href="#!">Link 3</a></li>
-                        <li><a class="white-text" href="#!">Link 4</a></li>
-                    </ul>
-                </div>
+        <div class="row">
+            <div class="col offset-l1 m6 l3">
+                <ul ilass='collection with-header'>
+                    <li class="collection-header white-text">
+                        <h5>Категории</h5>
+                    </li>
+                    <li><a class="collection-item white-text" href="films/skazki_rus">Русские
+                            сказки</a></li>
+                    <li><a class="collection-item white-text" href="films/skazki_eng">Сказки на
+                            английском</a></li>
+                    <li><a class="collection-item white-text" href="films/soyuzmultfilm">Союзмультфильм</a></li>
+                </ul>
+            </div>
+            <div class="col m6 l4">
+                {{#if userLogged}}
+                <h5 class="white-text"><a href="#" class="white-text">Моя коллекция</a></h5>
+                {{/if}}
+                {{#if userLogged}}
+                <h5 class="white-text"><a href="/users/{{user.id}}" class="white-text"><i
+                            class="material-icons left">person_outline</i>Личный кабинет</a></h5>
+                {{else}}
+                <h5 class="white-text"><a href="#modal" class="white-text"><i
+                            class="material-icons left">person_outline</i>Личный
+                        кабинет</a></h5>
+                {{/if}}
+                {{#if userLogged}}
+                <h5 class="white-text"><a href="#" class="white-text"><i
+                            class="material-icons left ">exit_to_app</i>Выйти</a></h5>
+                {{/if}}
+            </div>
+            <div class="col l4">
+                <h5 class="white-text">О нас</h5>
+                <p class="grey-text text-lighten-4">
+                    Мы - Еноты. Мы любим код больше, чем еду. Пожалуйста, не забывайте нас кормить, чтобы мы могли для
+                    вас покодить.
+                </p>
             </div>
         </div>
-        <div class="footer-copyright">
-            <div class="container">
-                Made by <a class="orange-text text-lighten-3" href="https://elbrusboot.camp">Elbrus Bootcamp</a>
-                Team Raccoons
+        <div class="row footer-copyright">
+            <div class=" col push-s0 push-m6 push-xl8">
+                Разработано в <a class="orange-text text-lighten-3" href="https://elbrusboot.camp">Elbrus
+                    Bootcamp</a>
+                командой Енотов
             </div>
         </div>
     </footer>
