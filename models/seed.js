@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const User = require('./users.js');
 const Film = require('./films.js');
 
-mongoose.connect('mongodb://localhost:27017/cinemood', {
+mongoose.connect('mongodb+srv://datauser:neJNDDYBoEGvopZ6@cluster0-qyjcg.mongodb.net/test?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
