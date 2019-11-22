@@ -33,7 +33,12 @@
                         <ul id='dropdown-main' class='dropdown-content'>
                             <li><a class="blue-text text-darken-1" href="/films/skazki_rus">Русские сказки</a></li>
                             <li class="divider" tabindex="-1"></li>
+<<<<<<< HEAD
                             <li><a class="blue-text text-darken-1" href="/films/skazki_eng">Сказки на английском</a></li>
+=======
+                            <li><a class="blue-text text-darken-1" href="/films/skazki_eng">Сказки на английском</a>
+                            </li>
+>>>>>>> b5419b1e7e2bbac1371e6a3763f737f3b88f6ca7
                             <li class="divider" tabindex="-1"></li>
                             <li><a class="blue-text text-darken-1" href="/films/soyuzmultfilm">Союзмультфильм</a></li>
                             <li class="divider" tabindex="-1"></li>
@@ -48,8 +53,75 @@
                     <li><a href="/users/{{user.id}}" class="white-text"><i
                                 class="material-icons left">person_outline</i>Личный кабинет</a></li>
                     {{else}}
-                    <li><a href="#modal" class="blue-text text-darken-1"><i
-                                class="material-icons left">person_outline</i>Личный кабинет</a></li>
+                    <li><a href="#modal-main" class="white-text modal-trigger"><i
+                                class="material-icons left">person_outline</i>Личный
+                            кабинет</a></li>
+
+                    <div id="modal-main" class="modal">
+                        <div class="modal-content white-darken-1 grey-text">
+                            <div class="row">
+                                <div class="col s12">
+                                    <ul class="tabs">
+                                        <li class="tab col s6"><a class="active" href="#signin">Вход</a></li>
+                                        <li class="tab col s6"><a href="#signup">Регистрация</a></li>
+                                    </ul>
+                                </div>
+                                <div id="signin" class="col s12">
+                                    <div class="row">
+                                        <form method="POST" class="col s12" action="/users/login">
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <input name="username" id="nickname-signin" type="text"
+                                                        class="validate">
+                                                    <label for="nickname-signin">Логин</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <input name="pasword" id="password-login" type="password"
+                                                        class="validate">
+                                                    <label for="password-login">Пароль</label>
+                                                </div>
+                                            </div>
+                                            <button class="btn waves-effect col s4 offset-s4 waves-light" type="submit"
+                                                name="action">Войти
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div id="signup" class="col s12">
+                                    <div class="row">
+                                        <form method="POST" class="col s12" action="/users/new">
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <input name="email" id="email-signup" type="email" class="validate">
+                                                    <label for="email-signup">Email</label>
+                                                    <span class="helper-text" data-error="Ошибка в вводе email"></span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <input name="username" id="nickname-signup" type="text"
+                                                        class="validate">
+                                                    <label for="nickname-signup">Логин</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <input name="password" id="password-signup" type="password"
+                                                        class="validate">
+                                                    <label for="password-signup">Пароль</label>
+                                                </div>
+                                            </div>
+                                            <button class="btn waves-effect col s5 offset-s3 waves-light" type="submit"
+                                                name="action">Зарегистрироваться
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     {{/if}}
                     {{#if userLogged}}
                     <li><a href="#" class=""><i class="material-icons left ">exit_to_app</i>Выйти</a></li>
@@ -133,16 +205,18 @@
             <div class="col l4">
                 <h5 class="white-text">О нас</h5>
                 <p class="grey-text text-lighten-4">
-                    Мы - Еноты. Мы любим код больше, чем еду. Пожалуйста, не забывайте нас кормить, чтобы мы могли для
-                    вас покодить.
+                    Мы - Еноты. Мы любим код больше, чем еду. Пожалуйста, не забывайте нас кормить.
                 </p>
             </div>
         </div>
         <div class="row footer-copyright">
             <div class=" col push-m3 push-l6 push-xl8">
+<<<<<<< HEAD
                 Разработано в <a class="orange-text text-lighten-3" href="https://elbrusboot.camp">Elbrus
+=======
+                Design & Dev by Team Raccoons @ <a class="orange-text text-lighten-3" href="https://elbrusboot.camp">Elbrus
+>>>>>>> b5419b1e7e2bbac1371e6a3763f737f3b88f6ca7
                     Bootcamp</a>
-                командой Енотов
             </div>
         </div>
     </footer>

@@ -4,6 +4,7 @@ const router = express.Router();
 const Films = require('../models/films');
 <<<<<<< HEAD
 
+<<<<<<< HEAD
 const userLogged = true;
 
 // вывод всех фльмов 
@@ -47,5 +48,32 @@ router.get('/:category/:film', async (req, res) => {
     let film = await Films.getByName(req.params.film);
     res.render('./films/detail', { film }, { userLogged });
 })
+=======
+//const userLogged = true;
+// вывод всех фильмов
+
+// allFilms - метод в схеме Films
+router.get('/', async (req, res) => {
+  let userLogged = req.isLogged;
+  res.render('./films/index', { allFilms: await Films.allFilms(), userLogged });
+  //res.send(await Films.allFilms());
+});
+// вывод всех фильмов выбранной категории
+// getByCategory - метод в схеме Films
+router.get('/:category', async (req, res) => {
+  let userLogged = req.isLogged;
+
+  res.render('./films/category/detail', {
+    categoryFilms: await Films.getByCategory(req.params.category),
+    userLogged,
+  });
+});
+// вывод определённого фильма
+router.get('/:category/:film', async (req, res) => {
+  let userLogged = req.isLogged;
+  let film = await Films.getByName(req.params.film);
+  res.render('./films/detail', { film, userLogged });
+});
+>>>>>>> b5419b1e7e2bbac1371e6a3763f737f3b88f6ca7
 
 module.exports = router;
