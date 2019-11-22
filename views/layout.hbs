@@ -64,16 +64,18 @@
                                 </div>
                                 <div id="signin" class="col s12">
                                     <div class="row">
-                                        <form class="col s12" action="/users/login">
+                                        <form method="POST" class="col s12" action="/users/login">
                                             <div class="row">
                                                 <div class="input-field col s12">
-                                                    <input name="username" id="nickname-signin" type="text" class="validate">
+                                                    <input name="username" id="nickname-signin" type="text"
+                                                        class="validate">
                                                     <label for="nickname-signin">Логин</label>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s12">
-                                                    <input name="pasword" id="password-login" type="password" class="validate">
+                                                    <input name="pasword" id="password-login" type="password"
+                                                        class="validate">
                                                     <label for="password-login">Пароль</label>
                                                 </div>
                                             </div>
@@ -85,7 +87,7 @@
                                 </div>
                                 <div id="signup" class="col s12">
                                     <div class="row">
-                                        <form class="col s12" action="/users/new">
+                                        <form method="POST" class="col s12" action="/users/new">
                                             <div class="row">
                                                 <div class="input-field col s12">
                                                     <input name="email" id="email-signup" type="email" class="validate">
@@ -95,13 +97,15 @@
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s12">
-                                                    <input name="username" id="nickname-signup" type="text" class="validate">
+                                                    <input name="username" id="nickname-signup" type="text"
+                                                        class="validate">
                                                     <label for="nickname-signup">Логин</label>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s12">
-                                                    <input name="password" id="password-signup" type="password" class="validate">
+                                                    <input name="password" id="password-signup" type="password"
+                                                        class="validate">
                                                     <label for="password-signup">Пароль</label>
                                                 </div>
                                             </div>
@@ -197,16 +201,14 @@
             <div class="col l4">
                 <h5 class="white-text">О нас</h5>
                 <p class="grey-text text-lighten-4">
-                    Мы - Еноты. Мы любим код больше, чем еду. Пожалуйста, не забывайте нас кормить, чтобы мы могли для
-                    вас покодить.
+                    Мы - Еноты. Мы любим код больше, чем еду. Пожалуйста, не забывайте нас кормить.
                 </p>
             </div>
         </div>
         <div class="row footer-copyright">
             <div class=" col push-m3 push-l6 push-xl8">
-                Разработано в <a class="orange-text text-lighten-3" href="https://elbrusboot.camp">Elbrus
+                Design & Dev by Team Raccoons @ <a class="orange-text text-lighten-3" href="https://elbrusboot.camp">Elbrus
                     Bootcamp</a>
-                командой Енотов
             </div>
         </div>
     </footer>
