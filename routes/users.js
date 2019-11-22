@@ -4,6 +4,7 @@ const router = express.Router();
 const User = require('../models/users');
 // const userLogged = true;
 
+const userLogged = true;
 // initial routers
 router.get('/new', (req, res) => {
   const userLogged = req.isLogged;

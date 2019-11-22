@@ -2,8 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 const Films = require('../models/films');
+
 //const userLogged = true;
 // вывод всех фильмов
+
 // allFilms - метод в схеме Films
 router.get('/', async (req, res) => {
   let userLogged = req.isLogged;
