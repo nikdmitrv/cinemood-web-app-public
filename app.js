@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-require 
-=======
 const express = require('express');
 
 const app = express();
@@ -33,9 +30,9 @@ const hbs = handlebars.create({
 });
 
 // view engine setup
+app.engine('hbs', hbs.engine);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-app.engine('hbs', hbs.engine);
 
 app.use('/', indexRouter);
 app.use('/films', filmsRouter);
@@ -58,4 +55,3 @@ app.use((err, req, res, next) => {
 });
 
 module.exports = app;
->>>>>>> 18c8be46fae0d11720a9362181e3fa91e73cd00d

@@ -3,11 +3,13 @@ const express = require('express');
 const router = express.Router();
 const Films = require('../models/films');
 
+const userLogged = true;
+
 // вывод всех фльмов 
 // allFilms - метод в схеме Films
 router.get('/', async (req, res) => {
-    res.render('./films/index', { allFilms: await Films.allFilms() }, { userLogged })
-    //res.send(await Films.allFilms());
+    res.render('films/index', { allFilms: await Films.allFilms(), userLogged });
+    // res.send(await Films.allFilms());
 })
 // вывод всех категорий 
 // allCategories - метод в схеме Films
@@ -17,9 +19,10 @@ router.get('/category', async (req, res) => {
 // вывод всех фильмов выбранной категории
 // getByCategory - метод в схеме Films
 router.get('/:category', async (req, res) => {
-    res.render('./films/caterory/detail', {
+    res.render('./films/category/detail', {
         categoryFilms: await Films.getByCategory(req.params.category)
-    }, { userLogged })
+        , userLogged
+    })
 })
 // вывод определённого фильма
 router.get('/:category/:film', async (req, res) => {
