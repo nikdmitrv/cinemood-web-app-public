@@ -6,13 +6,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--Import materialize.js-->
-    <script type="text/javascript" src="js/materialize.js" defer></script>
-    <script type="text/javascript" src="js/materialize-init.js" defer></script>
+    <script type="text/javascript" src="/js/materialize.js" defer></script>
+    <script type="text/javascript" src="/js/materialize-init.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +45,7 @@
                 </ul>
                 <ul class="col right hide-on-med-and-down">
                     {{#if userLogged}}
-                    <li><a href="/users/{{user.id}}" class="blue-text text-darken-1"><i
+                    <li><a href="/users/{{user.id}}" class="white-text"><i
                                 class="material-icons left">person_outline</i>Личный кабинет</a></li>
                     {{else}}
                     <li><a href="#modal" class="blue-text text-darken-1"><i
@@ -82,9 +82,11 @@
                         <li class="divider" tabindex="-1"></li>
                     </ul>
                     {{#if userLogged}}
-                    <li><a href="#" class="blue-text text-darken-1">
+                    <ul id='dropdown-side' class='collection with-header'>
+                        <li class="collection-header blue-text text-darken-1">
                             <h6>Моя коллекция</h6>
-                        </a></li>
+                        </li>
+                    </ul>
                     {{/if}}
                 </ul>
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger">
@@ -94,7 +96,7 @@
     </header>
 
     <main>
-        {{body}}
+        {{{body}}}
     </main>
 
     <footer class="page-footer orange">
@@ -137,7 +139,7 @@
             </div>
         </div>
         <div class="row footer-copyright">
-            <div class=" col push-s0 push-m6 push-xl8">
+            <div class=" col push-m3 push-l6 push-xl8">
                 Разработано в <a class="orange-text text-lighten-3" href="https://elbrusboot.camp">Elbrus
                     Bootcamp</a>
                 командой Енотов
